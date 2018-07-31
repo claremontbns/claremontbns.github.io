@@ -1,0 +1,302 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>CBNS | Contact</title>
+    <meta charset="UTF-8">
+    <link rel="icon" href="images/icon.png">
+    <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC|Open+Sans:400,800" rel="stylesheet">
+    <script src="scripts/d3.v4.min.js"></script>
+    <script src="scripts/jquery-3.3.1.js"></script>
+    <link rel='stylesheet' type='text/css' href='styles/style.css'>
+</head>
+
+<body>
+  <!-- HTML -->
+  <svg id="svg" height="575" width="300"></svg>
+  <svg id="svg1" height="575" width="900"></svg>
+  <svg id="background" height="0" width="0"></svg>
+
+  <div id="red-box" class="content">
+    <h1 class="header">Contact Information</h1>
+    <div id="content-flex">
+      <div id="contact-flex">
+        <p class="p-header">General Information</p>
+        <p id="email-p" class="paragraph">
+          Claremont Baptist Nursery School (CBNS)<br/>
+          472 N. Mountain Ave., Claremont, CA 91711<br/><br/>
+          claremontbns@gmail.com | (909) 624-8873
+        </p>
+        <p class="p-header">Facebook</p>
+        <p>
+          <iframe id="facebook" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fclaremontbaptistnurseryschool%2F%3Fref%3Dbr_rs&tabs=&width=400&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+        </p>
+      </div>
+      <div id="contact-flex-2">
+        <p class="p-header">Google Maps</p>
+        <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3303.8773523217765!2d-117.73063768525908!3d34.09828228059351!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c331db9c7ed0e7%3A0xcf7e508f1b1d501a!2s472+N+Mountain+Ave%2C+Claremont%2C+CA+91711!5e0!3m2!1sen!2sus!4v1528648831781" frameborder="0" allowfullscreen></iframe>
+      </div>
+  </div>
+
+  <!-- JAVASCRIPT -->
+  <!-- <script src="scripts/rough.js"></script> -->
+  <script type="text/javascript" src="scripts/load.js"></script>
+  <script type="text/javascript">
+
+  loadScript("scripts/rough.js", function(){
+    /// variables
+    var svg = d3.select("#svg")
+    var border = 2*0;
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    var width = 320;
+    var height = 575;
+    var crayonHeight = 0.65*height;
+    var crayonX = 0.09*height;
+    var textSize = 0.03*height;
+    var textHeight = 0.144*height;
+    var offset = 70;
+
+    const rc = rough.svg(svg);
+    const svg1 = document.getElementById('svg1');
+    const backSVG = document.getElementById('background');
+
+    backSVG.appendChild(rc.rectangle(0, 0, w, h, {
+      fill: "#FFA8D3",
+      hachureAngle: 60,
+      hachureGap: 5,
+      fillWeight: 3,
+      strokeWidth: 0,
+    }));
+
+    //append gray background rectangle
+    d3.select("#svg1").append("rect")
+        .attr('x',3)
+        .attr('y',3)
+        .attr('width',895)
+        .attr('height',570)
+        .attr('fill',"#EFEEEE");
+
+    // Rectangle
+    svg1.appendChild(rc.rectangle(3, 3, 895, 570, {
+      stroke: "black",
+      roughness: 2,
+      hachureAngle: 60,
+      hachureGap: 0,
+      strokeWidth: 5,
+    }));
+
+    // CRAYON BOX =============================
+
+    svg.append("circle")
+    .attr("cy", height/2)
+    .attr("cx", -350)
+    .attr("r", height)
+    .attr("fill", "#E0B744")
+
+    // END OF CRAYON BOX =============================
+
+    // RED CRAYON (HOME) =============================
+
+    var red = svg.append("svg:image")
+    .attr("xlink:href", "images/crayons/red.png")
+    .attr("class", "crayon")
+    .attr("height", crayonHeight) // 350
+    .attr("x", crayonX) // this is really the y-pos
+    .attr("y", -290) // this is really the x-pos
+    .on("click", function() {
+      window.location.href = "index.html";
+    })
+
+    var redText = svg.append("text")
+    .attr("class", "crayon-text")
+    .attr("fill", "white")
+    .attr("stroke", "black")
+    .attr("font-size", textSize)
+    .attr("x", 110)
+    .attr("y", textHeight)
+    .text("HOME")
+    .on("click", function() {
+      window.location.href = "index.html";
+    })
+
+    // END OF RED CRAYON (HOME) =============================
+
+    // ORANGE CRAYON (ADMISSION) =============================
+
+    var orange = svg.append("svg:image")
+    .attr("xlink:href", "images/crayons/orange.png")
+    .attr("class", "crayon")
+    .attr("height", crayonHeight) // 350
+    .attr("x", crayonX + offset) // this is really the y-pos
+    .attr("y", -290) // this is really the x-pos
+    .on("click", function() {
+      window.location.href = "admission.html";
+    })
+
+    var orangeText = svg.append("text")
+    .attr("class", "crayon-text")
+    .attr("fill", "white")
+    .attr("stroke", "black")
+    .attr("font-size", textSize)
+    .attr("x", 110)
+    .attr("y", textHeight + offset)
+    .text("ADMISSION")
+    .on("click", function() {
+      window.location.href = "admission.html";
+    })
+
+    // END OF ORANGE CRAYON (ADMISSION) ============================
+
+    // YELLOW CRAYON (CALENDAR) =============================
+
+    var yellow = svg.append("svg:image")
+    .attr("xlink:href", "images/crayons/yellow.png")
+    .attr("class", "crayon")
+    .attr("height", crayonHeight) // 350
+    .attr("x", crayonX + 2*offset) // this is really the y-pos
+    .attr("y", -290) // this is really the x-pos
+    .on("click", function() {
+      window.location.href = "calendar.html";
+    })
+
+    var yellowText = svg.append("text")
+    .attr("class", "crayon-text")
+    .attr("fill", "white")
+    .attr("stroke", "black")
+    .attr("font-size", textSize)
+    .attr("x", 110)
+    .attr("y", textHeight + 2*offset)
+    .text("CALENDAR")
+    .on("click", function() {
+      window.location.href = "calendar.html";
+    })
+
+    // END OF YELLOW CRAYON (CALENDAR) ============================
+
+    // GREEN CRAYON (STAFF) =============================
+
+    var green = svg.append("svg:image")
+    .attr("xlink:href", "images/crayons/green.png")
+    .attr("class", "crayon")
+    .attr("height", crayonHeight) // 350
+    .attr("x", crayonX + 3*offset) // this is really the y-pos
+    .attr("y", -290) // this is really the x-pos
+
+    var greenText = svg.append("text")
+    .attr("class", "crayon-text")
+    .attr("fill", "white")
+    .attr("stroke", "black")
+    .attr("font-size", textSize)
+    .attr("x", 110)
+    .attr("y", textHeight + 3*offset)
+    .text("STAFF")
+
+    // END OF GREEN CRAYON (STAFF) ============================
+
+    // BLUE CRAYON (EVENTS) =============================
+
+    var blue = svg.append("svg:image")
+    .attr("xlink:href", "images/crayons/blue.png")
+    .attr("class", "crayon")
+    .attr("height", crayonHeight) // 350
+    .attr("x", crayonX + 4*offset) // this is really the y-pos
+    .attr("y", -290) // this is really the x-pos
+    .on("click", function() {
+      window.location.href = "events.html";
+    })
+
+    var blueText = svg.append("text")
+    .attr("class", "crayon-text")
+    .attr("fill", "white")
+    .attr("stroke", "black")
+    .attr("font-size", textSize)
+    .attr("x", 110)
+    .attr("y", textHeight + 4*offset)
+    .text("EVENTS")
+    .on("click", function() {
+      window.location.href = "events.html";
+    })
+
+    // END OF BLUE CRAYON (EVENTS) ============================
+
+    // PURPLE CRAYON (HISTORY) =============================
+
+    var purple = svg.append("svg:image")
+    .attr("xlink:href", "images/crayons/purple.png")
+    .attr("class", "crayon")
+    .attr("height", crayonHeight) // 350
+    .attr("x", crayonX + 5*offset) // this is really the y-pos
+    .attr("y", -290) // this is really the x-pos
+
+    var purpleText = svg.append("text")
+    .attr("class", "crayon-text")
+    .attr("fill", "white")
+    .attr("stroke", "black")
+    .attr("font-size", textSize)
+    .attr("x", 110)
+    .attr("y", textHeight + 5*offset)
+    .text("HISTORY")
+
+    // END OF PURPLE CRAYON (HISTORY) ============================
+
+    // PINK CRAYON (CONTACT) =============================
+
+    var pink = svg.append("svg:image")
+    .attr("xlink:href", "images/crayons/pink.png")
+    .attr("class", "crayon")
+    .attr("height", crayonHeight) // 350
+    .attr("x", crayonX + 6*offset) // this is really the y-pos
+    .attr("y", -290) // this is really the x-pos
+    .on("click", function() {
+      window.location.href = "contact.html";
+    })
+
+    var pinkText = svg.append("text")
+    .attr("class", "crayon-text")
+    .attr("fill", "white")
+    .attr("stroke", "black")
+    .attr("font-size", textSize)
+    .attr("x", 110)
+    .attr("y", textHeight + 6*offset)
+    .text("CONTACT")
+    .on("click", function() {
+      window.location.href = "contact.html";
+    })
+
+    // END OF PINK CRAYON (CONTACT) ============================
+
+    svg.append("rect")
+    .attr("width", 100)
+    .attr("height", height)
+    .attr("fill", "#F2C649")
+
+    svg.append("rect")
+    .attr("x", 60)
+    .attr("width", 15)
+    .attr("height", height)
+    .attr("fill", "#006240")
+
+    svg.append("rect")
+    .attr("x", 40)
+    .attr("width", 10)
+    .attr("height", height)
+    .attr("fill", "#006240")
+
+    svg.append("circle")
+    .attr("r", 100)
+    .attr("cx", -10)
+    .attr("fill", "#E0B744")
+
+    svg.append("circle")
+    .attr("cy", height)
+    .attr("cx", -10)
+    .attr("r", 100)
+    .attr("fill", "#E0B744")
+
+    // END OF CRAYON BOX =============================
+  });
+  </script>
+
+</body>
+</html>
