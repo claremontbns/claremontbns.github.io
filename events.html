@@ -256,9 +256,9 @@
         .attr('width', "25%")
         .attr('height', 35)
         .attr("fill", "#7F32B9")
-        // .on("click", function() {
-        //   window.location.href = "events.html";
-        // });
+        .on("click", function() {
+          window.location.href = "history.html";
+        });
         var purpleText = svg.append("text")
         .attr("class", "crayon-text")
         .attr("fill", "white")
@@ -269,9 +269,9 @@
         .attr("x", "62%")
         .attr("y", 82)
         .text("HISTORY")
-        // .on("click", function() {
-        //   window.location.href = "events.html";
-        // });
+        .on("click", function() {
+          window.location.href = "history.html";
+        });
 
         svg.append("rect")
         .attr('x', "75%")
@@ -356,7 +356,7 @@
         halloweenBtn.on("click", function() {
           album.attr("src", halloween);
           header.html("Halloween Parade 2017")
-          description.html("Description of the Halloween Parade.")
+          description.html("A time to dress up in fun costumes and parade around, sing songs, and Trick or Treat!")
         });
 
         thanksgivingBtn.on("click", function() {
@@ -538,6 +538,9 @@
         .attr("height", crayonHeight) // 350
         .attr("x", crayonX + 5*offset) // this is really the y-pos
         .attr("y", -290) // this is really the x-pos
+        .on("click", function() {
+          window.location.href = "history.html";
+        });
 
         var purpleText = svg.append("text")
         .attr("class", "crayon-text")
@@ -547,6 +550,9 @@
         .attr("x", 110)
         .attr("y", textHeight + 5*offset)
         .text("HISTORY")
+        .on("click", function() {
+          window.location.href = "history.html";
+        });
 
         // END OF PURPLE CRAYON (HISTORY) ============================
 

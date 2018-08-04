@@ -36,8 +36,8 @@ th {
   font-style: italic;
 }
 
-rect {
-  /* z-index: 99; */
+p {
+  font-size: 13.5px;
 }
 /***** ID STYLING ******/
 
@@ -105,8 +105,8 @@ rect {
 
 #map {
   border: solid #dbdbdb 2px;
-  width: 400px;
-  height: 400px;
+  width: 370px;
+  height: 370px;
 }
 
 #facebook {
@@ -286,6 +286,15 @@ rect {
   margin: 0px;
 }
 
+#purple-box {
+  position: relative;
+  overflow: scroll;
+}
+
+.paragraph a:hover {
+  font-weight: bold;
+}
+
 /***** MOBILE STYLING ******/
 @media (max-width: 768px) {
     #svg {
@@ -384,7 +393,7 @@ rect {
       justify-content: space-evenly;
     }
 
-    #green-box {
+    #green-box, #purple-box {
       position: absolute;
       overflow: scroll;
     }
@@ -413,5 +422,18 @@ rect {
       font-size: 12px;
       width: 240px;
       display: inline-block;
+    }
+
+    #facebook {
+      border: solid #dbdbdb 2px;
+      width: 270px;
+      height: 150px;
+      overflow: hidden;
+    }
+
+    #map {
+      border: solid #dbdbdb 2px;
+      width: 270px;
+      height: 270px;
     }
 }

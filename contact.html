@@ -11,6 +11,7 @@
     <script src="scripts/d3.v4.min.js"></script>
     <script src="scripts/jquery-3.3.1.js"></script>
     <link rel='stylesheet' type='text/css' href='styles/style.css'>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
 </head>
 
 <body>
@@ -36,7 +37,9 @@
       </div>
       <div id="contact-flex-2">
         <p class="p-header">Google Maps</p>
-        <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3303.8773523217765!2d-117.73063768525908!3d34.09828228059351!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c331db9c7ed0e7%3A0xcf7e508f1b1d501a!2s472+N+Mountain+Ave%2C+Claremont%2C+CA+91711!5e0!3m2!1sen!2sus!4v1528648831781" frameborder="0" allowfullscreen></iframe>
+        <p>
+          <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3303.8773523217765!2d-117.73063768525908!3d34.09828228059351!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c331db9c7ed0e7%3A0xcf7e508f1b1d501a!2s472+N+Mountain+Ave%2C+Claremont%2C+CA+91711!5e0!3m2!1sen!2sus!4v1528648831781" frameborder="0" allowfullscreen></iframe>
+        </p>
       </div>
   </div>
 
@@ -46,13 +49,14 @@
   <script type="text/javascript">
 
   loadScript("scripts/rough.js", function(){
+
     /// variables
     var svg = d3.select("#svg")
     var border = 2*0;
     var w = window.innerWidth;
     var h = window.innerHeight;
-    var width = 320;
-    var height = 575;
+    var width = $('#svg').width();
+    var height = $('#svg').height();
     var crayonHeight = 0.65*height;
     var crayonX = 0.09*height;
     var textSize = 0.03*height;
@@ -63,246 +67,488 @@
     const svg1 = document.getElementById('svg1');
     const backSVG = document.getElementById('background');
 
-    backSVG.appendChild(rc.rectangle(0, 0, w, h, {
-      fill: "#FFA8D3",
-      hachureAngle: 60,
-      hachureGap: 5,
-      fillWeight: 3,
-      strokeWidth: 0,
-    }));
+    function myFunction(media) {
+      // MOBILE ************************************
+      if (media.matches) {
+        console.log("on mobile");
 
-    //append gray background rectangle
-    d3.select("#svg1").append("rect")
-        .attr('x',3)
-        .attr('y',3)
-        .attr('width',895)
-        .attr('height',570)
-        .attr('fill',"#EFEEEE");
+        backSVG.appendChild(rc.rectangle(0, 0, w, h, {
+          fill: "#FFA8D3",
+          hachureAngle: 60,
+          hachureGap: 5,
+          fillWeight: 3,
+          strokeWidth: 0,
+        }));
 
-    // Rectangle
-    svg1.appendChild(rc.rectangle(3, 3, 895, 570, {
-      stroke: "black",
-      roughness: 2,
-      hachureAngle: 60,
-      hachureGap: 0,
-      strokeWidth: 5,
-    }));
+        // Title
+        svg.append("rect")
+        .attr("x", 0)
+        .attr("y", 0)
+        .attr("width", "100%")
+        .attr("height", 30)
+        .attr("fill", "#E0B744")
+        svg.append("rect")
+        .attr("x", 0)
+        .attr("y", 8)
+        .attr("width", "100%")
+        .attr("height", 2)
+        .attr("fill", "#006240")
+        svg.append("rect")
+        .attr("x", 0)
+        .attr("y", 14)
+        .attr("width", "100%")
+        .attr("height", 4)
+        .attr("fill", "#006240")
+        // var title = svg.append("text")
+        // .attr("class", "crayon-text")
+        // .attr("fill", "white")
+        // .attr("text-anchor", "middle")
+        // .attr("alignment-baseline", "middle")
+        // .attr("stroke", "black")
+        // .attr("font-size", 17)
+        // .attr("x", "50%")
+        // .attr("y", 15)
+        // .text("Claremont Baptist Nursery School")
 
-    // CRAYON BOX =============================
+        svg.append("rect")
+        .attr('x', 0)
+        .attr('y', 30)
+        .attr('width', "33.33333%")
+        .attr('height', 35)
+        .attr("fill", "#D01D00")
+        .on("click", function() {
+          window.location.href = "index.html";
+        });
+        var redText = svg.append("text")
+        .attr("class", "crayon-text")
+        .attr("fill", "white")
+        .attr("text-anchor", "middle")
+        .attr("alignment-baseline", "middle")
+        .attr("stroke", "black")
+        .attr("font-size", 15)
+        .attr("x", "16%")
+        .attr("y", 48)
+        .text("HOME")
+        .on("click", function() {
+          window.location.href = "index.html";
+        });
 
-    svg.append("circle")
-    .attr("cy", height/2)
-    .attr("cx", -350)
-    .attr("r", height)
-    .attr("fill", "#E0B744")
+        svg.append("rect")
+        .attr('x', "33.33333%")
+        .attr('y', 30)
+        .attr('width', "33.33333%")
+        .attr('height', 35)
+        .attr("fill", "#FB5E00")
+        .on("click", function() {
+          window.location.href = "admission.html";
+        });
+        var orangeText = svg.append("text")
+        .attr("class", "crayon-text")
+        .attr("fill", "white")
+        .attr("text-anchor", "middle")
+        .attr("alignment-baseline", "middle")
+        .attr("stroke", "black")
+        .attr("font-size", 15)
+        .attr("x", "50%")
+        .attr("y", 48)
+        .text("ADMISSION")
+        .on("click", function() {
+          window.location.href = "admission.html";
+        });
 
-    // END OF CRAYON BOX =============================
+        svg.append("rect")
+        .attr('x', "66.66666%")
+        .attr('y', 30)
+        .attr('width', "33.33333%")
+        .attr('height', 35)
+        .attr("fill", "#FFDB00")
+        .on("click", function() {
+          window.location.href = "calendar.html";
+        });
+        var yellowText = svg.append("text")
+        .attr("class", "crayon-text")
+        .attr("fill", "white")
+        .attr("text-anchor", "middle")
+        .attr("alignment-baseline", "middle")
+        .attr("stroke", "black")
+        .attr("font-size", 15)
+        .attr("x", "83%")
+        .attr("y", 48)
+        .text("CALENDAR")
+        .on("click", function() {
+          window.location.href = "calendar.html";
+        });
 
-    // RED CRAYON (HOME) =============================
+        svg.append("rect")
+        .attr('x', 0)
+        .attr('y', 65)
+        .attr('width', "25%")
+        .attr('height', 35)
+        .attr("fill", "#0D9900")
+        .on("click", function() {
+          window.location.href = "staff.html";
+        });
+        var greenText = svg.append("text")
+        .attr("class", "crayon-text")
+        .attr("fill", "white")
+        .attr("text-anchor", "middle")
+        .attr("alignment-baseline", "middle")
+        .attr("stroke", "black")
+        .attr("font-size", 15)
+        .attr("x", "12%")
+        .attr("y", 82)
+        .text("STAFF")
+        .on("click", function() {
+          window.location.href = "staff.html";
+        });
 
-    var red = svg.append("svg:image")
-    .attr("xlink:href", "images/crayons/red.png")
-    .attr("class", "crayon")
-    .attr("height", crayonHeight) // 350
-    .attr("x", crayonX) // this is really the y-pos
-    .attr("y", -290) // this is really the x-pos
-    .on("click", function() {
-      window.location.href = "index.html";
-    })
+        svg.append("rect")
+        .attr('x', "25%")
+        .attr('y', 65)
+        .attr('width', "25%")
+        .attr('height', 35)
+        .attr("fill", "#005AAE")
+        .on("click", function() {
+          window.location.href = "events.html";
+        });
+        var blueText = svg.append("text")
+        .attr("class", "crayon-text")
+        .attr("fill", "white")
+        .attr("text-anchor", "middle")
+        .attr("alignment-baseline", "middle")
+        .attr("stroke", "black")
+        .attr("font-size", 15)
+        .attr("x", "37.5%")
+        .attr("y", 82)
+        .text("EVENTS")
+        .on("click", function() {
+          window.location.href = "events.html";
+        });
 
-    var redText = svg.append("text")
-    .attr("class", "crayon-text")
-    .attr("fill", "white")
-    .attr("stroke", "black")
-    .attr("font-size", textSize)
-    .attr("x", 110)
-    .attr("y", textHeight)
-    .text("HOME")
-    .on("click", function() {
-      window.location.href = "index.html";
-    })
+        svg.append("rect")
+        .attr('x', "50%")
+        .attr('y', 65)
+        .attr('width', "25%")
+        .attr('height', 35)
+        .attr("fill", "#7F32B9")
+        .on("click", function() {
+          window.location.href = "history.html";
+        });
+        var purpleText = svg.append("text")
+        .attr("class", "crayon-text")
+        .attr("fill", "white")
+        .attr("text-anchor", "middle")
+        .attr("alignment-baseline", "middle")
+        .attr("stroke", "black")
+        .attr("font-size", 15)
+        .attr("x", "62%")
+        .attr("y", 82)
+        .text("HISTORY")
+        .on("click", function() {
+          window.location.href = "history.html";
+        });
 
-    // END OF RED CRAYON (HOME) =============================
+        svg.append("rect")
+        .attr('x', "75%")
+        .attr('y', 65)
+        .attr('width', "25%")
+        .attr('height', 35)
+        .attr("fill", "#FF5AAE")
+        .on("click", function() {
+          window.location.href = "contact.html";
+        });
+        var pinkText = svg.append("text")
+        .attr("class", "crayon-text")
+        .attr("fill", "white")
+        .attr("text-anchor", "middle")
+        .attr("alignment-baseline", "middle")
+        .attr("stroke", "black")
+        .attr("font-size", 15)
+        .attr("x", "88%")
+        .attr("y", 82)
+        .text("CONTACT")
+        .on("click", function() {
+          window.location.href = "contact.html";
+        });
 
-    // ORANGE CRAYON (ADMISSION) =============================
+        // CRAYON BOX =============================
 
-    var orange = svg.append("svg:image")
-    .attr("xlink:href", "images/crayons/orange.png")
-    .attr("class", "crayon")
-    .attr("height", crayonHeight) // 350
-    .attr("x", crayonX + offset) // this is really the y-pos
-    .attr("y", -290) // this is really the x-pos
-    .on("click", function() {
-      window.location.href = "admission.html";
-    })
+        //append gray background rectangle
+        d3.select("#svg1").append("rect")
+            .attr('x', 3)
+            .attr('y', 3)
+            .attr('width', "100%")
+            .attr('height', "80%")
+            .attr('fill', "#EFEEEE");
 
-    var orangeText = svg.append("text")
-    .attr("class", "crayon-text")
-    .attr("fill", "white")
-    .attr("stroke", "black")
-    .attr("font-size", textSize)
-    .attr("x", 110)
-    .attr("y", textHeight + offset)
-    .text("ADMISSION")
-    .on("click", function() {
-      window.location.href = "admission.html";
-    })
+        var contentWidth = document.getElementById("svg1").childNodes[0].width.animVal.value;
+        var contentHeight = document.getElementById("svg1").childNodes[0].height.animVal.value;
 
-    // END OF ORANGE CRAYON (ADMISSION) ============================
+        // Rectangle
+        var contentStroke = svg1.appendChild(rc.rectangle(3, 3, contentWidth-5, contentHeight, {
+          stroke: "black",
+          roughness: 2,
+          hachureAngle: 60,
+          hachureGap: 0,
+          strokeWidth: 7,
+          class: "the",
+        }));
 
-    // YELLOW CRAYON (CALENDAR) =============================
+      } else { // DESKTOP ************************************
 
-    var yellow = svg.append("svg:image")
-    .attr("xlink:href", "images/crayons/yellow.png")
-    .attr("class", "crayon")
-    .attr("height", crayonHeight) // 350
-    .attr("x", crayonX + 2*offset) // this is really the y-pos
-    .attr("y", -290) // this is really the x-pos
-    .on("click", function() {
-      window.location.href = "calendar.html";
-    })
+        // CRAYON BOX =============================
 
-    var yellowText = svg.append("text")
-    .attr("class", "crayon-text")
-    .attr("fill", "white")
-    .attr("stroke", "black")
-    .attr("font-size", textSize)
-    .attr("x", 110)
-    .attr("y", textHeight + 2*offset)
-    .text("CALENDAR")
-    .on("click", function() {
-      window.location.href = "calendar.html";
-    })
+        svg.append("circle")
+        .attr("cy", height/2)
+        .attr("cx", -350)
+        .attr("r", height)
+        .attr("fill", "#E0B744")
 
-    // END OF YELLOW CRAYON (CALENDAR) ============================
+        // END OF CRAYON BOX =============================
 
-    // GREEN CRAYON (STAFF) =============================
+        backSVG.appendChild(rc.rectangle(0, 0, w, h, {
+          fill: "#FFA8D3",
+          hachureAngle: 60,
+          hachureGap: 5,
+          fillWeight: 3,
+          strokeWidth: 0,
+        }));
 
-    var green = svg.append("svg:image")
-    .attr("xlink:href", "images/crayons/green.png")
-    .attr("class", "crayon")
-    .attr("height", crayonHeight) // 350
-    .attr("x", crayonX + 3*offset) // this is really the y-pos
-    .attr("y", -290) // this is really the x-pos
-    .on("click", function() {
-      window.location.href = "staff.html";
-    })
+        //append gray background rectangle
+        d3.select("#svg1").append("rect")
+            .attr('x',3)
+            .attr('y',3)
+            .attr('width',895)
+            .attr('height',570)
+            .attr('fill',"#EFEEEE");
 
-    var greenText = svg.append("text")
-    .attr("class", "crayon-text")
-    .attr("fill", "white")
-    .attr("stroke", "black")
-    .attr("font-size", textSize)
-    .attr("x", 110)
-    .attr("y", textHeight + 3*offset)
-    .text("STAFF")
-    .on("click", function() {
-      window.location.href = "staff.html";
-    })
+        // Rectangle
+        svg1.appendChild(rc.rectangle(3, 3, 895, 570, {
+          stroke: "black",
+          roughness: 1,
+          hachureAngle: 60,
+          hachureGap: 0,
+          strokeWidth: 6,
+        }));
 
-    // END OF GREEN CRAYON (STAFF) ============================
+        // RED CRAYON (HOME) =============================
 
-    // BLUE CRAYON (EVENTS) =============================
+        var red = svg.append("svg:image")
+        .attr("xlink:href", "images/crayons/red.png")
+        .attr("class", "crayon")
+        .attr("height", crayonHeight) // 350
+        .attr("x", crayonX) // this is really the y-pos
+        .attr("y", -290) // this is really the x-pos
+        .on("click", function() {
+          window.location.href = "index.html";
+        })
 
-    var blue = svg.append("svg:image")
-    .attr("xlink:href", "images/crayons/blue.png")
-    .attr("class", "crayon")
-    .attr("height", crayonHeight) // 350
-    .attr("x", crayonX + 4*offset) // this is really the y-pos
-    .attr("y", -290) // this is really the x-pos
-    .on("click", function() {
-      window.location.href = "events.html";
-    })
+        var redText = svg.append("text")
+        .attr("class", "crayon-text")
+        .attr("fill", "white")
+        .attr("stroke", "black")
+        .attr("font-size", textSize)
+        .attr("x", 110)
+        .attr("y", textHeight)
+        .text("HOME")
+        .on("click", function() {
+          window.location.href = "index.html";
+        })
 
-    var blueText = svg.append("text")
-    .attr("class", "crayon-text")
-    .attr("fill", "white")
-    .attr("stroke", "black")
-    .attr("font-size", textSize)
-    .attr("x", 110)
-    .attr("y", textHeight + 4*offset)
-    .text("EVENTS")
-    .on("click", function() {
-      window.location.href = "events.html";
-    })
+        // END OF RED CRAYON (HOME) =============================
 
-    // END OF BLUE CRAYON (EVENTS) ============================
+        // ORANGE CRAYON (ADMISSION) =============================
 
-    // PURPLE CRAYON (HISTORY) =============================
+        var orange = svg.append("svg:image")
+        .attr("xlink:href", "images/crayons/orange.png")
+        .attr("class", "crayon")
+        .attr("height", crayonHeight) // 350
+        .attr("x", crayonX + offset) // this is really the y-pos
+        .attr("y", -290) // this is really the x-pos
+        .on("click", function() {
+          window.location.href = "admission.html";
+        })
 
-    var purple = svg.append("svg:image")
-    .attr("xlink:href", "images/crayons/purple.png")
-    .attr("class", "crayon")
-    .attr("height", crayonHeight) // 350
-    .attr("x", crayonX + 5*offset) // this is really the y-pos
-    .attr("y", -290) // this is really the x-pos
+        var orangeText = svg.append("text")
+        .attr("class", "crayon-text")
+        .attr("fill", "white")
+        .attr("stroke", "black")
+        .attr("font-size", textSize)
+        .attr("x", 110)
+        .attr("y", textHeight + offset)
+        .text("ADMISSION")
+        .on("click", function() {
+          window.location.href = "admission.html";
+        })
 
-    var purpleText = svg.append("text")
-    .attr("class", "crayon-text")
-    .attr("fill", "white")
-    .attr("stroke", "black")
-    .attr("font-size", textSize)
-    .attr("x", 110)
-    .attr("y", textHeight + 5*offset)
-    .text("HISTORY")
+        // END OF ORANGE CRAYON (ADMISSION) ============================
 
-    // END OF PURPLE CRAYON (HISTORY) ============================
+        // YELLOW CRAYON (CALENDAR) =============================
 
-    // PINK CRAYON (CONTACT) =============================
+        var yellow = svg.append("svg:image")
+        .attr("xlink:href", "images/crayons/yellow.png")
+        .attr("class", "crayon")
+        .attr("height", crayonHeight) // 350
+        .attr("x", crayonX + 2*offset) // this is really the y-pos
+        .attr("y", -290) // this is really the x-pos
+        .on("click", function() {
+          window.location.href = "calendar.html";
+        })
 
-    var pink = svg.append("svg:image")
-    .attr("xlink:href", "images/crayons/pink.png")
-    .attr("class", "crayon")
-    .attr("height", crayonHeight) // 350
-    .attr("x", crayonX + 6*offset) // this is really the y-pos
-    .attr("y", -290) // this is really the x-pos
-    .on("click", function() {
-      window.location.href = "contact.html";
-    })
+        var yellowText = svg.append("text")
+        .attr("class", "crayon-text")
+        .attr("fill", "white")
+        .attr("stroke", "black")
+        .attr("font-size", textSize)
+        .attr("x", 110)
+        .attr("y", textHeight + 2*offset)
+        .text("CALENDAR")
+        .on("click", function() {
+          window.location.href = "calendar.html";
+        })
 
-    var pinkText = svg.append("text")
-    .attr("class", "crayon-text")
-    .attr("fill", "white")
-    .attr("stroke", "black")
-    .attr("font-size", textSize)
-    .attr("x", 110)
-    .attr("y", textHeight + 6*offset)
-    .text("CONTACT")
-    .on("click", function() {
-      window.location.href = "contact.html";
-    })
+        // END OF YELLOW CRAYON (CALENDAR) ============================
 
-    // END OF PINK CRAYON (CONTACT) ============================
+        // GREEN CRAYON (STAFF) =============================
 
-    svg.append("rect")
-    .attr("width", 100)
-    .attr("height", height)
-    .attr("fill", "#F2C649")
+        var green = svg.append("svg:image")
+        .attr("xlink:href", "images/crayons/green.png")
+        .attr("class", "crayon")
+        .attr("height", crayonHeight) // 350
+        .attr("x", crayonX + 3*offset) // this is really the y-pos
+        .attr("y", -290) // this is really the x-pos
+        .on("click", function() {
+          window.location.href = "staff.html";
+        })
 
-    svg.append("rect")
-    .attr("x", 60)
-    .attr("width", 15)
-    .attr("height", height)
-    .attr("fill", "#006240")
+        var greenText = svg.append("text")
+        .attr("class", "crayon-text")
+        .attr("fill", "white")
+        .attr("stroke", "black")
+        .attr("font-size", textSize)
+        .attr("x", 110)
+        .attr("y", textHeight + 3*offset)
+        .text("STAFF")
+        .on("click", function() {
+          window.location.href = "staff.html";
+        })
 
-    svg.append("rect")
-    .attr("x", 40)
-    .attr("width", 10)
-    .attr("height", height)
-    .attr("fill", "#006240")
+        // END OF GREEN CRAYON (STAFF) ============================
 
-    svg.append("circle")
-    .attr("r", 100)
-    .attr("cx", -10)
-    .attr("fill", "#E0B744")
+        // BLUE CRAYON (EVENTS) =============================
 
-    svg.append("circle")
-    .attr("cy", height)
-    .attr("cx", -10)
-    .attr("r", 100)
-    .attr("fill", "#E0B744")
+        var blue = svg.append("svg:image")
+        .attr("xlink:href", "images/crayons/blue.png")
+        .attr("class", "crayon")
+        .attr("height", crayonHeight) // 350
+        .attr("x", crayonX + 4*offset) // this is really the y-pos
+        .attr("y", -290) // this is really the x-pos
+        .on("click", function() {
+          window.location.href = "events.html";
+        })
 
-    // END OF CRAYON BOX =============================
+        var blueText = svg.append("text")
+        .attr("class", "crayon-text")
+        .attr("fill", "white")
+        .attr("stroke", "black")
+        .attr("font-size", textSize)
+        .attr("x", 110)
+        .attr("y", textHeight + 4*offset)
+        .text("EVENTS")
+        .on("click", function() {
+          window.location.href = "events.html";
+        })
+
+        // END OF BLUE CRAYON (EVENTS) ============================
+
+        // PURPLE CRAYON (HISTORY) =============================
+
+        var purple = svg.append("svg:image")
+        .attr("xlink:href", "images/crayons/purple.png")
+        .attr("class", "crayon")
+        .attr("height", crayonHeight) // 350
+        .attr("x", crayonX + 5*offset) // this is really the y-pos
+        .attr("y", -290) // this is really the x-pos
+        .on("click", function() {
+          window.location.href = "history.html";
+        });
+
+        var purpleText = svg.append("text")
+        .attr("class", "crayon-text")
+        .attr("fill", "white")
+        .attr("stroke", "black")
+        .attr("font-size", textSize)
+        .attr("x", 110)
+        .attr("y", textHeight + 5*offset)
+        .text("HISTORY")
+        .on("click", function() {
+          window.location.href = "history.html";
+        });
+
+        // END OF PURPLE CRAYON (HISTORY) ============================
+
+        // PINK CRAYON (CONTACT) =============================
+
+        var pink = svg.append("svg:image")
+        .attr("xlink:href", "images/crayons/pink.png")
+        .attr("class", "crayon")
+        .attr("height", crayonHeight) // 350
+        .attr("x", crayonX + 6*offset) // this is really the y-pos
+        .attr("y", -290) // this is really the x-pos
+        .on("click", function() {
+          window.location.href = "contact.html";
+        })
+
+        var pinkText = svg.append("text")
+        .attr("class", "crayon-text")
+        .attr("fill", "white")
+        .attr("stroke", "black")
+        .attr("font-size", textSize)
+        .attr("x", 110)
+        .attr("y", textHeight + 6*offset)
+        .text("CONTACT")
+        .on("click", function() {
+          window.location.href = "contact.html";
+        })
+
+        // END OF PINK CRAYON (CONTACT) ============================
+
+        svg.append("rect")
+        .attr("width", 100)
+        .attr("height", height)
+        .attr("fill", "#F2C649")
+
+        svg.append("rect")
+        .attr("x", 60)
+        .attr("width", 15)
+        .attr("height", height)
+        .attr("fill", "#006240")
+
+        svg.append("rect")
+        .attr("x", 40)
+        .attr("width", 10)
+        .attr("height", height)
+        .attr("fill", "#006240")
+
+        svg.append("circle")
+        .attr("r", 100)
+        .attr("cx", -10)
+        .attr("fill", "#E0B744")
+
+        svg.append("circle")
+        .attr("cy", height)
+        .attr("cx", -10)
+        .attr("r", 100)
+        .attr("fill", "#E0B744")
+
+        // END OF CRAYON BOX =============================
+
+      }
+    }
+
+    var media = window.matchMedia("(max-width: 768px)")
+    myFunction(media)
+    media.addListener(myFunction)
   });
   </script>
 

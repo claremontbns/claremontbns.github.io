@@ -35,7 +35,7 @@
         </p>
       </div>
       <div id="about-flex-2">
-        <p class="p-header">Education Goals</p>
+        <p class="p-header">Educational Goals</p>
         <p class="paragraph">
           Our goal is to meet every individual child's needs at their respective stage of development. We plan our program in a way that will help them develop their mental, physical, emotional, and social potential for success in later school years. We provide a happy, loving, and Christian environment in which they can grow.
         </p>
@@ -232,9 +232,9 @@
         .attr('width', "25%")
         .attr('height', 35)
         .attr("fill", "#7F32B9")
-        // .on("click", function() {
-        //   window.location.href = "events.html";
-        // });
+        .on("click", function() {
+          window.location.href = "history.html";
+        });
         var purpleText = svg.append("text")
         .attr("class", "crayon-text")
         .attr("fill", "white")
@@ -245,9 +245,9 @@
         .attr("x", "62%")
         .attr("y", 82)
         .text("HISTORY")
-        // .on("click", function() {
-        //   window.location.href = "events.html";
-        // });
+        .on("click", function() {
+          window.location.href = "history.html";
+        });
 
         svg.append("rect")
         .attr('x', "75%")
@@ -308,7 +308,6 @@
           hachureAngle: 60,
           hachureGap: 0,
           strokeWidth: 7,
-          class: "the",
         }));
 
       } else { // DESKTOP ************************************
@@ -486,6 +485,9 @@
         .attr("height", crayonHeight) // 350
         .attr("x", crayonX + 5*offset) // this is really the y-pos
         .attr("y", -290) // this is really the x-pos
+        .on("click", function() {
+          window.location.href = "history.html";
+        });
 
         var purpleText = svg.append("text")
         .attr("class", "crayon-text")
@@ -495,6 +497,9 @@
         .attr("x", 110)
         .attr("y", textHeight + 5*offset)
         .text("HISTORY")
+        .on("click", function() {
+          window.location.href = "history.html";
+        });
 
         // END OF PURPLE CRAYON (HISTORY) ============================
 

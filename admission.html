@@ -23,6 +23,34 @@
   <div id="orange-box" class="content">
     <h1 class="header">Admission Information</h1>
     <div id="content-flex">
+
+      <div id="ad-flex-2">
+        <p class="p-header">Prospective Families</p>
+        <p class="paragraph">
+          Welcome, prospective families! CBNS accepts all children between the ages of 2.5 and 4 years. If you are interested in enrolling your child(ren) with us, please fill out each of the forms below for each child and bring them to our office along with a non-refundable $130 deposit.
+          <br/>
+          <a download="enrollment-form.pdf" href="files/enrollment-form.pdf" title="Enrollment Form">[ 2018-2019 Enrollment Form ]</a>
+          <br/>
+          <a download="Child Care Center Notification of Parents Rights_LIC995.pdf" href="files/Child Care Center Notification of Parents Rights_LIC995.pdf" title="Child Care Center Notification of Parents Rights">[ Child Care Center Notification of Parents Rights ]</a>
+          <br/>
+          <a download="Consent For Emergency Medical Treatment_LIC627.pdf" href="files/Consent For Emergency Medical Treatment_LIC627.pdf" title="Consent For Emergency Medical Treatment">[ Consent For Emergency Medical Treatment ]</a>
+          <br/>
+          <a download="Identification and Emergency Contact_LIC700.pdf" href="files/Identification and Emergency Contact_LIC700.pdf" title="Identification and Emergency Contact">[ Identification and Emergency Contact ]</a>
+          <br/>
+          <a download="Immunization.pdf" href="files/Immunization.pdf" title="Immunization">[ Immunization ]</a>
+          <a download="Health History_LIC702.pdf" href="files/Health History_LIC702.pdf" title="Health History">[ Health History ]</a>
+          <br/>
+          <a download="Personal Rights_LIC613A.pdf" href="files/Personal Rights_LIC613A.pdf" title="Personal Rights">[ Personal Rights ]</a>
+          <a download="Physicians Report_LIC701.pdf" href="files/Physicians Report_LIC701.pdf" title="Physicians Report">[ Physicians Report ]</a>
+        </p>
+        <p class="p-header">Returning Families</p>
+        <p class="paragraph">
+          Welcome back, returning families! Please be sure to fill out the enrollment form below for each of your children and bring the forms, along with a non-refundable $130 deposit, to us at start of the academic year.
+          <br/>
+          <a download="enrollment-form.pdf" href="files/enrollment-form.pdf" title="Enrollment Form">[ 2018-2019 Enrollment Form ]</a>
+        </p>
+      </div>
+
       <div id="ad-flex">
         <p class="p-header">Operating Hours</p>
         <p class="paragraph">
@@ -37,33 +65,9 @@
         	<tr><td><i>8:30 AM <br/> 12:00 PM<i/> </td><td>$449.00</td><td>$270.00</td><td>$180.00</td></tr>
           <tr><td><i>9:00 AM <br/> 12:00 PM</i> </td><td>$393.00</td><td>$237.00</td><td>$156.00</td></tr>
         </table>
+        <br/>
       </div>
-      <div id="ad-flex-2">
-        <p class="p-header">Prospective Families</p>
-        <p class="paragraph">
-          Welcome, prospective families! CBNS accepts all children between the ages of 2.5 and 4 years. If you are interested in enrolling your child(ren) with us, please fill out the enrollment form below for each child and bring it our office along with a non-refundable $130 deposit.
-          <br/>
-          <a download="enrollment-form.pdf" href="files/enrollment-form.pdf" title="Enrollment Form">[ 2018-2019 Enrollment Form ]</a>
-        </p>
-        <p class="p-header">Returning Families</p>
-        <p class="paragraph">
-          Welcome back, returning families! Please make sure each of the forms below are filled out and returned to us at start of the academic year.
-          <br/>
-          <a download="Child Care Center Notification of Parents Rights_LIC995.pdf" href="files/Child Care Center Notification of Parents Rights_LIC995.pdf" title="Child Care Center Notification of Parents Rights">[ Child Care Center Notification of Parents Rights ]</a>
-          <br/>
-          <a download="Consent For Emergency Medical Treatment_LIC627.pdf" href="files/Consent For Emergency Medical Treatment_LIC627.pdf" title="Consent For Emergency Medical Treatment">[ Consent For Emergency Medical Treatment ]</a>
-          <br/>
-          <a download="Health History_LIC702.pdf" href="files/Health History_LIC702.pdf" title="Health History">[ Health History ]</a>
-          <br/>
-          <a download="Identification and Emergency Contact_LIC700.pdf" href="files/Identification and Emergency Contact_LIC700.pdf" title="Identification and Emergency Contact">[ Identification and Emergency Contact ]</a>
-          <br/>
-          <a download="Immunization.pdf" href="files/Immunization.pdf" title="Immunization">[ Immunization ]</a>
-          <br/>
-          <a download="Personal Rights_LIC613A.pdf" href="files/Personal Rights_LIC613A.pdf" title="Personal Rights">[ Personal Rights ]</a>
-          <br/>
-          <a download="Physicians Report_LIC701.pdf" href="files/Physicians Report_LIC701.pdf" title="Physicians Report">[ Physicians Report ]</a>
-        </p>
-      </div>
+
     </div>
   </div>
 
@@ -255,9 +259,9 @@
         .attr('width', "25%")
         .attr('height', 35)
         .attr("fill", "#7F32B9")
-        // .on("click", function() {
-        //   window.location.href = "events.html";
-        // });
+        .on("click", function() {
+          window.location.href = "history.html";
+        });
         var purpleText = svg.append("text")
         .attr("class", "crayon-text")
         .attr("fill", "white")
@@ -268,9 +272,9 @@
         .attr("x", "62%")
         .attr("y", 82)
         .text("HISTORY")
-        // .on("click", function() {
-        //   window.location.href = "events.html";
-        // });
+        .on("click", function() {
+          window.location.href = "history.html";
+        });
 
         svg.append("rect")
         .attr('x', "75%")
@@ -508,6 +512,9 @@
         .attr("height", crayonHeight) // 350
         .attr("x", crayonX + 5*offset) // this is really the y-pos
         .attr("y", -290) // this is really the x-pos
+        .on("click", function() {
+          window.location.href = "history.html";
+        });
 
         var purpleText = svg.append("text")
         .attr("class", "crayon-text")
@@ -517,6 +524,9 @@
         .attr("x", 110)
         .attr("y", textHeight + 5*offset)
         .text("HISTORY")
+        .on("click", function() {
+          window.location.href = "history.html";
+        });
 
         // END OF PURPLE CRAYON (HISTORY) ============================
 
