@@ -4,6 +4,8 @@
 <head>
     <title>CBNS | Contact</title>
     <meta charset="UTF-8">
+    <meta name="google" content="notranslate">
+    <meta http-equiv="Content-Language" content="en">
     <link rel="icon" href="images/icon.png">
     <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC|Open+Sans:400,800" rel="stylesheet">
     <script src="scripts/d3.v4.min.js"></script>
@@ -182,6 +184,9 @@
     .attr("height", crayonHeight) // 350
     .attr("x", crayonX + 3*offset) // this is really the y-pos
     .attr("y", -290) // this is really the x-pos
+    .on("click", function() {
+      window.location.href = "staff.html";
+    })
 
     var greenText = svg.append("text")
     .attr("class", "crayon-text")
@@ -191,6 +196,9 @@
     .attr("x", 110)
     .attr("y", textHeight + 3*offset)
     .text("STAFF")
+    .on("click", function() {
+      window.location.href = "staff.html";
+    })
 
     // END OF GREEN CRAYON (STAFF) ============================
 

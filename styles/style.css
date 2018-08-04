@@ -36,16 +36,16 @@ th {
   font-style: italic;
 }
 
-/***** ID STYLING ******/
-
-#red-box, #yellow-box, #orange-box {
-  border: none;
+rect {
+  /* z-index: 99; */
 }
+/***** ID STYLING ******/
 
 #svg1 {
   /* width: 100%;
   height: 100%; */
-  left: 360px;
+  left: 50%;
+  transform:translate(-35%,-50%);
   padding: 5px;
 }
 
@@ -185,13 +185,14 @@ th {
 
 .content {
   position: fixed;
-  top: 320px;
-  transform: translateY(-50%);
-  left: 360px;
+  top: 340px;
+  left: 50%;
+  transform:translate(-35%,-50%);
   height: 500px;
   width: 900px;
   border-style: dashed;
   text-align: center;
+  border: none;
 }
 
 .header {
@@ -245,6 +246,46 @@ th {
   cursor: pointer;
 }
 
+#staff-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-family: 'Open Sans';
+}
+
+#green-box {
+  position: relative;
+  overflow: auto;
+}
+
+.staff-row-div {
+  padding-top: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.staff-div h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.staff-div h5 {
+  margin: 0;
+  padding: 0;
+}
+
+.staff-div p {
+  text-align: justify;
+  width: 350px;
+}
+
+.id-pic {
+  width: 170px;
+  padding: 0px;
+  margin: 0px;
+}
+
 /***** MOBILE STYLING ******/
 @media (max-width: 768px) {
     #svg {
@@ -258,7 +299,7 @@ th {
     #svg1 {
       top: 110px;
       left: 2%;
-      height: 100%;
+      height: 95%;
       width: 95%;
       transform: none;
       padding: 0px;
@@ -266,14 +307,15 @@ th {
 
     .content {
       position: fixed;
-      top: 110px;
+      top: 115px;
       left: 2%;
-      height: 80%;
+      height: 75%;
       width: 95%;
       transform: none;
       border-style: dashed;
       text-align: center;
       overflow: scroll;
+      border: none;
     }
 
     .content h1 {
@@ -331,7 +373,45 @@ th {
 
     #calendar {
       border-width: 0;
-      width: 90%;
+      width: 85%;
       height: 80%;
+    }
+
+    .staff-row-div {
+      padding-top: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+
+    #green-box {
+      position: absolute;
+      overflow: scroll;
+    }
+
+    .id-pic {
+      width: 150px;
+    }
+
+    .staff-row-div {
+      padding-top: 0px;
+    }
+
+    .staff-div {
+      padding-bottom: 20px;
+    }
+
+    .staff-div h2 {
+      font-size: 20px;
+    }
+
+    .staff-div h5 {
+      font-size: 15px;
+    }
+
+    .staff-div p {
+      font-size: 12px;
+      width: 240px;
+      display: inline-block;
     }
 }

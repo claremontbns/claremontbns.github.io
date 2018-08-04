@@ -4,6 +4,8 @@
 <head>
     <title>CBNS | Home</title>
     <meta charset="UTF-8">
+    <meta name="google" content="notranslate">
+    <meta http-equiv="Content-Language" content="en">
     <link rel="icon" href="images/icon.png">
     <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC|Open+Sans:400,800" rel="stylesheet">
     <script src="scripts/d3.v4.min.js"></script>
@@ -184,9 +186,9 @@
         .attr('width', "25%")
         .attr('height', 35)
         .attr("fill", "#0D9900")
-        // .on("click", function() {
-        //   window.location.href = "calendar.html";
-        // });
+        .on("click", function() {
+          window.location.href = "staff.html";
+        });
         var greenText = svg.append("text")
         .attr("class", "crayon-text")
         .attr("fill", "white")
@@ -197,9 +199,9 @@
         .attr("x", "12%")
         .attr("y", 82)
         .text("STAFF")
-        // .on("click", function() {
-        //   window.location.href = "calendar.html";
-        // });
+        .on("click", function() {
+          window.location.href = "staff.html";
+        });
 
         svg.append("rect")
         .attr('x', "25%")
@@ -306,6 +308,7 @@
           hachureAngle: 60,
           hachureGap: 0,
           strokeWidth: 7,
+          class: "the",
         }));
 
       } else { // DESKTOP ************************************
@@ -339,10 +342,10 @@
         // Rectangle
         svg1.appendChild(rc.rectangle(3, 3, 895, 570, {
           stroke: "black",
-          roughness: 2,
+          roughness: 1,
           hachureAngle: 60,
           hachureGap: 0,
-          strokeWidth: 5,
+          strokeWidth: 6,
         }));
 
         // RED CRAYON (HOME) =============================
@@ -431,6 +434,9 @@
         .attr("height", crayonHeight) // 350
         .attr("x", crayonX + 3*offset) // this is really the y-pos
         .attr("y", -290) // this is really the x-pos
+        .on("click", function() {
+          window.location.href = "staff.html";
+        })
 
         var greenText = svg.append("text")
         .attr("class", "crayon-text")
@@ -440,6 +446,9 @@
         .attr("x", 110)
         .attr("y", textHeight + 3*offset)
         .text("STAFF")
+        .on("click", function() {
+          window.location.href = "staff.html";
+        })
 
         // END OF GREEN CRAYON (STAFF) ============================
 
